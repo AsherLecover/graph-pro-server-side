@@ -15,7 +15,7 @@ export class MainDataService {
 
 
     async test() {
-        const query = await this.mainDataRepository.query(`SELECT * FROM "public"."medical-main-data" WHERE id = 6`);
+        const query = await this.mainDataRepository.query(`SELECT * FROM "public"."medical-main-data" WHERE user_id = 6`);
         return query
 
 
