@@ -6,6 +6,10 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { typeOrmConfig } from './config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
+import { PatientsModule } from './patients/patients.module';
+import { MainDataService } from './main-data/main-data.service';
+import { MainDataController } from './main-data/main-data.controller';
+import { MainDataModule } from './main-data/main-data.module';
 
 
 @Module({
@@ -16,6 +20,8 @@ import { ConfigModule } from '@nestjs/config';
       envFilePath:'.env'
     }),
     AuthModule,
+    PatientsModule,
+    MainDataModule,
   ],
   controllers: [AppController],
   providers: [AppService],

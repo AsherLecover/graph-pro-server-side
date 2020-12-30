@@ -1,5 +1,8 @@
 import { TypeOrmModule, TypeOrmModuleOptions } from "@nestjs/typeorm";
 import { User } from "src/auth/user.entity";
+import { MainData } from "src/main-data/main-data.entity";
+import { PatientsController } from "src/patients/patients.controller";
+import { Patients } from "src/patients/patients.entity";
 
 // export const typeOrmConfig: TypeOrmModuleOptions = {
 //     type: 'postgres',
@@ -21,6 +24,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     autoLoadEntities: true,
     synchronize: true,
     // logging:true,
-    entities: [User],
+    entities: [User,Patients, MainData],
 };
  
