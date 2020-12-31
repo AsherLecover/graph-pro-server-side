@@ -24,7 +24,7 @@ export class MainDataService {
 
     }
 
-    async getMedicalDataByParam(patientId: number, param: string) {
+    async getMedicalDataByParam(patientId: number, param: string, data:string) {
         // SELECT column1, column2, ... 
         // FROM table_name;
         console.log('patientId service:', patientId);
@@ -33,7 +33,8 @@ export class MainDataService {
         //  SELECT "TimeStamp", "State" FROM "public"."medical-main-data";
 
         const query = await this.mainDataRepository.query(`
-        SELECT "TimeStamp", "${param}" FROM "public"."medical-main-data" WHERE user_id = ${patientId}`);
+        SELECT "TimeStamp", "${param}" FROM "public"."medical-main-data" WHERE user_id = ${patientId}
+        AND "TimeStamp" LIKE '${data}%'`);
         console.log(query);
 
         return query

@@ -22,15 +22,17 @@ export class MainDataController {
         return await this.mainDataService.test(patientId)
     }
 
-    @Get('/:patientId/:param')
+    @Get('/:patientId/:param/:date')
     async getUserMedicalDataByParam(
         @Param('patientId', ParseIntPipe) patientId: number,
         @Param('param') param: string,
+        @Param('date') date: string,
     ) {
         console.log('patientId controler:', patientId);
         console.log('param controler:', param);
+        console.log('date controler:', date);
 
 
-        return await this.mainDataService.getMedicalDataByParam(patientId, param)
+        return await this.mainDataService.getMedicalDataByParam(patientId, param, date)
     }
 }
