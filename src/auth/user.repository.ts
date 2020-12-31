@@ -8,7 +8,7 @@ import { EntityRepository, Repository } from "typeorm";
 @EntityRepository(User)
 export class UserRepository extends Repository<User>{
 
-    async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void>{
+    async signUp(authCredentialsDto: AuthCredentialsDto): Promise<any>{
         console.log(987098790);
         
         const { username, email, password} = authCredentialsDto;
@@ -22,7 +22,7 @@ export class UserRepository extends Repository<User>{
         
         
         try {
-            await user.save();
+           return await user.save();
 
         } catch (error) {
 

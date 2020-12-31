@@ -5,7 +5,7 @@ import { Patients } from "./patients.entity";
 
 @EntityRepository(Patients)
 export class PatientsRepository extends Repository<Patients>{
-
+   
     async addPatien(patientsDto: PatientsDto): Promise<void>{
         
         const { username, age , address} = patientsDto;
@@ -15,11 +15,11 @@ export class PatientsRepository extends Repository<Patients>{
         patients.age = age;
         patients.address = address;
         
-
         await patients.save();
-      
-
     }
+
+   
+
 
    
     

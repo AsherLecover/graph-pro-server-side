@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { MainDataService } from './main-data.service';
 
 @Controller('main-data')
@@ -10,6 +10,15 @@ export class MainDataController {
 
     @Get('')
     test(){
-        return this.mainDataService.test()
+        // return this.mainDataService.test()
+    }
+
+    @Get('/:patientId')
+    async getUserMedicalData(
+        @Param('patientId',ParseIntPipe) patientId: number
+    ){
+        console.log('patientId', patientId);
+
+         return  await this.mainDataService.test(patientId)
     }
 }

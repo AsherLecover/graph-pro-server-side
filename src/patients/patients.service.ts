@@ -5,6 +5,7 @@ import { PatientsRepository } from './patients.repository';
 
 @Injectable()
 export class PatientsService {
+   
   constructor(
     @InjectRepository(PatientsRepository)
     private patientsRepository: PatientsRepository) {}
@@ -12,5 +13,10 @@ export class PatientsService {
    async addPatien(patientsDto:PatientsDto){
         return await this.patientsRepository.addPatien(patientsDto);
 
+    }
+
+    async getAllPatiens(): Promise<any> {
+        const query = this.patientsRepository.createQueryBuilder('patients');
+        return await query.getMany()
     }
 }

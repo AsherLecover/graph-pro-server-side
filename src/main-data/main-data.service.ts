@@ -14,8 +14,12 @@ export class MainDataService {
     ) { }
 
 
-    async test() {
-        const query = await this.mainDataRepository.query(`SELECT * FROM "public"."medical-main-data" WHERE user_id = 6`);
+    async test(patientId) {
+        console.log('12121jhgjgjhgjhgj212');
+        const query = await this.mainDataRepository.query(`SELECT * FROM "public"."medical-main-data" WHERE user_id = ${patientId}`);
+        console.log(query);
+        
+        
         return query
 
 

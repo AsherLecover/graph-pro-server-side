@@ -1,4 +1,4 @@
-import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { PatientsDto } from './dto/patients.dto';
 import { PatientsService } from './patients.service';
 
@@ -12,6 +12,11 @@ export class PatientsController {
     addPatien(@Body(ValidationPipe) patientsDto: PatientsDto):Promise<void>{
         console.log('authCredentialsDto: (from controller..)',patientsDto);
         return this.patientsService.addPatien(patientsDto);
+    }
+
+    @Get('')
+    getAllPatiens():Promise<void>{
+        return this.patientsService.getAllPatiens();
     }
 
 }
