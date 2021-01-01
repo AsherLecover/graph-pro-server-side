@@ -26,7 +26,7 @@ export class MainDataService {
 
     async getMedicalDataByParam(patientId: number, param: string, data:string) {
         // SELECT column1, column2, ... 
-        // FROM table_name;
+        // FROM table_name; 
         console.log('patientId service:', patientId);
         console.log('param service:', param);
 
@@ -37,6 +37,6 @@ export class MainDataService {
         AND "TimeStamp" LIKE '${data}%'`);
         console.log(query);
 
-        return query
+        return query 
     }
 }
